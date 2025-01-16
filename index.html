@@ -1,78 +1,23 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistant de conversation IA</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        #output {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-        }
-        .highlight {
-            color: #007BFF;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Oussema Jl </title>
+  <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-    <h1>Oussema Jl test</h1>
-    <p>Appuyez sur le bouton ci-dessous pour commencer l'écoute. L'IA analysera la conversation et vous fournira des suggestions.</p>
-    <button id="start-btn">Commencer l'écoute</button>
-    <div id="output">
-        <p>Résultats :</p>
-        <p id="transcript">Aucune transcription pour le moment.</p>
-        <p id="ai-response">Réponse IA : En attente d'entrée vocale...</p>
-    </div>
+<!-- partial:index.partial.html -->
+<div class="Wrapper">
+  <div class="left">Error</div>
+  <div class="right">Error</div>
+  <canvas id="five" width="550" height="205"></canvas>
+</div>
+<h1>Error :(</h1>
+<p>Ce Site Web bloqué par Responsable Informatique & Sécurité ! </p>
+<p>BSM CALL CENTER</p>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script><script  src="./script.js"></script>
 
-    <script>
-        const startButton = document.getElementById('start-btn');
-        const transcriptElement = document.getElementById('transcript');
-        const aiResponseElement = document.getElementById('ai-response');
-
-        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        recognition.lang = 'fr-FR';
-        recognition.interimResults = true;
-
-        startButton.addEventListener('click', () => {
-            recognition.start();
-            aiResponseElement.textContent = "Écoute en cours...";
-        });
-
-        recognition.onresult = async (event) => {
-            let transcript = '';
-            for (let i = 0; i < event.results.length; i++) {
-                transcript += event.results[i][0].transcript;
-            }
-            transcriptElement.textContent = transcript;
-
-            // Simuler une requête IA (vous pouvez intégrer une API réelle ici)
-            const aiResponse = await simulateAIResponse(transcript);
-            aiResponseElement.textContent = `Réponse IA : ${aiResponse}`;
-        };
-
-        recognition.onerror = (event) => {
-            aiResponseElement.textContent = `Erreur : ${event.error}`;
-        };
-
-        async function simulateAIResponse(text) {
-            // Ici, on simule une réponse IA. Dans un vrai projet, envoyez `text` à une API IA.
-            if (text.toLowerCase().includes('bonjour')) {
-                return "Bonjour ! Comment puis-je vous aider ?";
-            } else if (text.toLowerCase().includes('merci')) {
-                return "Je vous en prie !";
-            } else {
-                return "Analyse en cours...";
-            }
-        }
-    </script>
 </body>
 </html>
